@@ -1,0 +1,144 @@
+/* DeVote - Decentralized Voting App */
+
+/* CSS Variables */
+:root {
+  --bg: #080b12; /* Deep navy-black background */
+  --surface: #0e1420; /* Card / panel background */
+  --surface-2: #141b2d; /* Slightly lighter surface */
+  --border: #1e2d45; /* Subtle border color */
+  --border-glow: #00ffe026; /* Glowing border tint */
+
+  --cyan: #00ffe0; /* Primary neon accent */
+  --purple: #a78bfa; /* Secondary accent */
+  --green: #00ff88; /* Success color */
+  --red: #ff4f6b; /* Error color */
+  --amber: #fbbf24; /* Pending/warning color */
+
+  --text: #e2e8f0; /* Primary text */
+  --text-muted: #64748b; /* Secondary / muted text */
+  --text-dim: #334155; /* Very dim text */
+
+  --font-display: "Syne", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --radius: 12px;
+  --radius-sm: 6px;
+  --transition: 0.2s ease;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none !important;
+}
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Grid background */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  /* Fine grid lines */
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+
+  /* Fade toward center so it doesn't overpower content */
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    black 30%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    black 30%,
+    transparent 100%
+  );
+
+  opacity: 0.35;
+}
+
+/* Header */
+.site-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  background: rgba(8, 11, 18, 0.85);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.logo strong {
+  color: var(--cyan);
+}
+
+/* Connect wallet button */
+.btn-connect {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--bg);
+  background: var(--cyan);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 22px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition:
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+.btn-connect:hover {
+  box-shadow: 0 0 20px var(--cyan);
+  transform: translateY(-1px);
+}
+.btn-connect:active {
+  transform: translateY(0);
+}
