@@ -1,7 +1,3 @@
-Here's a revised version of your README with reworded sections to make it distinct from the original while keeping all the technical details intact:
-
----
-
 # DeVote - Decentralized Voting App
 
 A sleek, on-chain voting platform powered by **Ethereum** (Sepolia testnet) featuring a neon-inspired interface. Connect your wallet, cast your vote, and watch results update live on the blockchain.
